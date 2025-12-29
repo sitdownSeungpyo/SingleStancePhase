@@ -6,7 +6,7 @@
             - **링크**: https://www.acmicpc.net/problem/2581
             
             ## 📂 언어별 풀이
-            [Cpp](./Cpp)
+            [Cpp](./Cpp) | [Python](./Python)
             
             ## 📝 풀이 작성 가이드
             - 위 링크 중 자신의 언어 폴더에 코드를 작성해주세요.
