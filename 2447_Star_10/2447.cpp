@@ -1,17 +1,24 @@
 #include <cstdio>
 
-void star(int i, int j, int n)
+char board[6561][6562];
+
+void draw(int n, int x, int y)
 {
-  if ((i / n) % 3 == 1 && (j / n) % 3 == 1)
+  if (n == 1)
   {
-    printf(" ");
+    board[x][y] = '*';
+    return;
   }
-  else
+
+  int size = n / 3;
+  for (int i = 0; i < 3; i++)
   {
-    if (n / 3 == 0)
-      printf("*");
-    else
-      star(i, j, n / 3);
+    for (int j = 0; j < 3; j++)
+    {
+      if (i == 1 && j == 1)
+        continue;
+      draw(size, x + i * size, y + j * size);
+    }
   }
 }
 
@@ -19,27 +26,16 @@ int main()
 {
   int n;
   scanf("%d", &n);
-  for (int i = 0; i < n; i++)
-  {
-    for (int j = 0; j < n; j++)
-    {
-      star(i, j, n);
-    }
-    printf("\n");
-  }
-}
 
-int main()
-{
-  int n;
-  scanf("%d", &n);
   for (int i = 0; i < n; i++)
   {
     for (int j = 0; j < n; j++)
-    {
-      star(i, j, n);
-    }
-    printf("\n");
+      board[i][j] = ' ';
+    board[i][n] = '\0';
   }
-  return 0;
+
+  draw(n, 0, 0);
+
+  for (int i = 0; i < n; i++)
+    printf("%s\n", board[i]);
 }
